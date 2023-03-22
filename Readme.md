@@ -38,30 +38,29 @@ Install a mycroft skill! Either pass a search query or a github url
 
 ```bash
 (.venv) user@hostname:~$ osm install --help
-Usage: osm install [OPTIONS]
+Usage: osm install [OPTIONS] [SKILL]
+
+  Install a Skill
 
 Options:
-  --skill TEXT                    skill to install
   --branch TEXT                   select skill github branch to use
   --folder TEXT                   path where skill will be installed, default
-                                  /opt/mycroft/skills
-
+                                  from assistant config
   --search                        search appstores, otherwise assume it's a
                                   github url
-
-  --appstore [ovos|mycroft|pling|andlo|default|all]
+  --appstore [ovos|mycroft|pling|andlo|neon|default|all]
                                   search a specific appstore, default search
                                   appstores enabled in config file
-
   --method [all|name|url|category|author|tag|description]
                                   match this metadata field when searching
   --fuzzy / --exact               exact or fuzzy matching, default fuzzy
   --thresh INTEGER RANGE          fuzzy matching threshold from 0 (everything
                                   is a match) to 100 (exact match),  default
-                                  80
-
+                                  80  [0<=x<=100]
   --no-ignore-case                ignore upper/lower case, default ignore
-  --help                          Show this message and exit.
+  --non-interactive               install single skill non-interactive from
+                                  url and branch
+  --help                          Show this message and exit.   
 
 ```
 
@@ -70,13 +69,8 @@ Options:
 Enable a new skills store
 ```bash
 (.venv) user@hostname:~$ osm enable --help
-Usage: osm enable [OPTIONS]
-
-Options:
-  --appstore [ovos|mycroft|pling|andlo|all]
-                                  enable a specific appstore
+Usage: osm enable
   --help                          Show this message and exit.
-
 ```
 
 #### Disable
@@ -84,11 +78,7 @@ Options:
 Disable a skills store
 ```bash
 (.venv) user@hostname:~$ osm disable --help
-Usage: osm disable [OPTIONS]
-
-Options:
-  --appstore [ovos|mycroft|pling|andlo|all]
-                                  disable a specific appstore
+Usage: osm disable 
   --help                          Show this message and exit.
 ```
 
